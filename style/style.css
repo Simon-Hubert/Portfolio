@@ -1,0 +1,259 @@
+/* CONSIGNE DU RENDU
+Dimanche 23h59 !
+- Le site sera une page unique
+- Le site sera responsive
+- Le site contiendra :
+    - Une navbar
+    - Une présentation de vous
+    - 3 sections qui présentent chacune un projet réalisé à l'IIM
+        - Section 1 : Layout en flex
+        - Section 2 : Layout en grid
+        - Section 3 : Layout en Bootstrap
+        Les sections auront au moins un composant commun avec au moins une variante CSS orienté objet propre à chaque section
+        => jor un bouton
+    - 2 animations de votre choix
+    - 2 transitions de votre choix
+- Rendre sur DVO :
+    Le site déployé sur GitHub pages (discord pour se rappeler comment on fait)
+BONUS : Ajouter un carousel bootstrap
+*/
+
+/* Palette de couleur
+#74569b
+#96fbc7
+#f7ffae
+#ffb3cb
+#d8bfd8
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #74569b;
+    font-family: 'Calibri';
+    font-weight: bold;
+}
+
+body{
+    background-color: #ffb3cb;
+}
+
+nav a{
+    margin: 0;
+    text-decoration: none;
+    color: #74569b;
+}   
+
+nav{
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    gap: 60px;
+}
+
+nav ul{
+    width: 100%;
+    align-items: center;
+    display: flex; 
+    list-style: none;
+}
+nav ul a{
+    flex:auto;
+    padding: 20px;
+    border: solid;
+    border-left: none;
+    border-width: 5px;
+    border-color: #74569b;
+    transition: 500ms;  
+}
+
+nav a:hover{
+    background-color: #96fbc7;
+}
+
+nav ul a:first-child{
+    flex:auto;
+    padding: 20px;
+    border: solid;
+    border-width: 5px;
+    border-color: #74569b;    
+}
+
+p{
+    text-indent: 1em;
+    text-align: justify;
+}
+
+.image{
+    transition: 500ms;
+}
+
+.image:hover{
+    transform: scale(1.5,1.5);
+}
+
+.cover{
+    min-width: 200px;
+    margin: 50px;
+    object-fit: cover;
+    flex:1;
+}
+
+section{
+    margin: 50px;
+    border: solid;
+    border-width: 5px;
+    border-color: #74569b;
+    box-shadow: 10px 10px 0px #74569b;
+    padding: 50px;
+}
+
+.animation-conteneur{
+    width: 300px;
+    height: 300px;
+}
+
+.animation{
+    color: #74569b;
+    font-family: 'Comic Sans MS';
+    padding: 3px;
+    width: 100px;
+    height: 100px;
+    background-color: #96fbc7;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: #74569b;
+    box-shadow: 10px 10px 0px #74569b;
+    animation: deplace 5s infinite ease-in-out;
+}
+
+@keyframes deplace {
+    0%{
+        
+    }
+    25%{
+        transform: translateX(200px) rotate(90deg);
+    }
+    50%{
+        transform: translateX(200px) translateY(200px) rotate(180deg);
+    }
+    75%{
+        transform: translateY(200px) rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.sect1{
+    padding: 0;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+
+.description{
+    min-width: 400px;
+    padding: 50px;
+    flex: 3;
+}
+.description > p{
+    margin-top: 10px;
+}
+
+.conteneur-bouton{
+    width: 100%;
+    text-align: center;
+}
+
+.bouton{
+    width: 150px;
+    margin-top:20px;
+    padding:10px 20px;
+    background-color: #96fbc7;
+    border: solid;
+    border-width: 5px;
+    box-shadow: 10px 10px 0px #74569b;
+    transition: 500ms;
+}
+
+.bouton:hover{
+    background-color: #d8bfd8;
+    animation: tremble 400ms infinite ease-in-out;
+}
+
+@keyframes tremble {
+    0%{
+        transform: translateX(-3px);
+    }
+
+    50%{
+        transform: translateX(3px);
+    }
+
+    100%{
+        transform: translateX(-3px);
+    }
+}
+
+.sect2{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    justify-content: center;
+}
+
+.img-scene{
+    max-width: 300px;
+    margin: auto;
+}
+
+.sect2 .bouton{
+    border-radius: 999px;
+}
+
+.carousel-conteneur{
+    margin: auto;
+}
+
+.carousel{
+    width: 400px;
+}
+
+.img-site{
+    width: 400px;
+}
+
+.sect3 .bouton{
+    border-radius: 10px;
+}
+
+.sect3 p{
+    text-indent: 0em;
+}
+
+.sect3 .description{
+    margin: 20px;
+}
+
+.conteneur-img{
+    text-align: center;
+}
+
+@media screen and (max-width: 570px){
+    nav{
+        display: none;
+    }
+    .description{
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .sect2{
+        grid-template-columns: 1fr;
+    }
+    
+}
